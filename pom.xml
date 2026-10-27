@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.fileshare</groupId>
+    <artifactId>fileshare-parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Local Network File Sharing</name>
+    <description>Peer-to-peer file transfer over a local network: UDP discovery, TCP transfer, SHA-256, JavaFX UI.</description>
+
+    <!-- Order = build order. Rule: every module depends ONLY on `contracts`; only apps/* may depend on other modules. -->
+    <modules>
+        <module>modules/contracts</module>
+        <module>modules/concurrency</module>
+        <module>modules/discovery</module>
+        <module>modules/network</module>
+        <module>modules/file</module>
+        <module>modules/transfer</module>
+        <module>modules/ui-cli</module>
+        <module>modules/ui-javafx</module>
+        <module>apps/fileshare-app</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.release>21</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <javafx.version>21.0.5</javafx.version>
+        <junit.version>5.10.2</junit.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency><groupId>com.fileshare</groupId><artifactId>contracts</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>com.fileshare</groupId><artifactId>concurrency</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>com.fileshare</groupId><artifactId>discovery</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>com.fileshare</groupId><artifactId>network</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>com.fileshare</groupId><artifactId>file</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>com.fileshare</groupId><artifactId>transfer</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>com.fileshare</groupId><artifactId>ui-cli</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>com.fileshare</groupId><artifactId>ui-javafx</artifactId><version>${project.version}</version></dependency>
+            <dependency><groupId>org.openjfx</groupId><artifactId>javafx-controls</artifactId><version>${javafx.version}</version></dependency>
+            <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>${junit.version}</version><scope>test</scope></dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><scope>test</scope></dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.13.0</version></plugin>
+                <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.2.5</version></plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

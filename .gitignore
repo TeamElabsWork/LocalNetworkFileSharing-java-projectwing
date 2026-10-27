@@ -1,0 +1,20 @@
+# Build
+target/
+*.class
+*.jar
+# IDEs
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+# OS
+.DS_Store
+Thumbs.db
+# App runtime files
+*.part
+downloads/
+FileShare/
+# Logs
+*.log

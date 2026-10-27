@@ -1,0 +1,40 @@
+# Local Network File Sharing - code ownership (one owner per module)
+#
+# HOW TO USE THIS FILE:
+# 1. Replace each placeholder handle (e.g. `@owner-discovery`) with the real GitHub username of that module's owner.
+# 2. Once saved on `main`, GitHub AUTOMATICALLY:
+#    - requests the owner's review on every PR that touches their module;
+#    - requires the listed owners' sign-off for any change to /modules/contracts/.
+#
+# IMPORTANT: a change in /modules/contracts affects EVERY module. It needs review from the lead and the owners of
+# the modules that use the changed type (see CONTRIBUTING.md, "The Contracts Stability Rule").
+# Placeholders below follow the default 6-person split of the implementation plan.
+
+# Shared contracts (M1) - lead + all consumers
+/modules/contracts/          @aroosahoda @owner-discovery @owner-network @owner-transfer @owner-concurrency
+
+# Device discovery (M2)
+/modules/discovery/          @owner-discovery
+
+# TCP networking & protocol (M3)
+/modules/network/            @owner-network
+
+# File services & integrity (M5) and transfer engine (M4)
+/modules/file/               @owner-transfer
+/modules/transfer/           @owner-transfer
+
+# Concurrency & reliability (M6)
+/modules/concurrency/        @owner-concurrency
+
+# User interfaces (M7)
+/modules/ui-cli/             @owner-ui
+/modules/ui-javafx/          @owner-ui
+
+# Application wiring, config, docs, CI (M1 / M8)
+/apps/                       @aroosahoda
+/config/                     @aroosahoda
+/docs/                       @aroosahoda
+/.github/                    @aroosahoda
+/scripts/                    @aroosahoda
+/pom.xml                     @aroosahoda
+CODEOWNERS                   @aroosahoda
