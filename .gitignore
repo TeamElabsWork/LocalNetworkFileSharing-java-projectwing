@@ -14,7 +14,7 @@ target/
 Thumbs.db
 # App runtime files
 *.part
-downloads/
-FileShare/
+/downloads/
+/FileShare/
 # Logs
 *.log
